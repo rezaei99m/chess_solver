@@ -1,0 +1,9 @@
+F:\Projects\Chess\Chess\Chess.Core\obj\Release\Chess.Core.csprojAssemblyReference.cache
+F:\Projects\Chess\Chess\Chess.Core\obj\Release\Chess.Core.csproj.CoreCompileInputs.cache
+F:\Projects\Chess\Chess\Chess.Core\bin\Release\Chess.Core.dll.config
+F:\Projects\Chess\Chess\Chess.Core\bin\Release\Chess.Core.dll
+F:\Projects\Chess\Chess\Chess.Core\bin\Release\Chess.Core.pdb
+F:\Projects\Chess\Chess\Chess.Core\bin\Release\Microsoft.ExceptionMessageBox.dll
+F:\Projects\Chess\Chess\Chess.Core\obj\Release\Chess.Core.csproj.CopyComplete
+F:\Projects\Chess\Chess\Chess.Core\obj\Release\Chess.Core.dll
+F:\Projects\Chess\Chess\Chess.Core\obj\Release\Chess.Core.pdb

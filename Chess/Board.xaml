@@ -1,0 +1,571 @@
+﻿<Window x:Class="Chess.Board"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="Board" WindowState="Maximized" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--#region Number and Alphabet around board-->
+        <Grid Grid.Row="0" Grid.Column="0" >
+            
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">A</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">B</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="3">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">C</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="4">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">D</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="5">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">E</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="6">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">F</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="7">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">G</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="8">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">H</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Cursor="Hand">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">1</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">2</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">3</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">4</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">5</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">6</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="0">
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">7</TextBlock>
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="8" Grid.Column="0">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <TextBlock FontFamily="vazir" FontSize="40" HorizontalAlignment="Center">8</TextBlock>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 1st Column-->
+        <Grid x:Name="_11" Grid.Row="1" Grid.Column="1" MouseDown="_11_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_11r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_21" Grid.Row="2" Grid.Column="1" Background="#FFD1CECE" MouseDown="_21_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_21r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_31" Grid.Row="3" Grid.Column="1" MouseDown="_31_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_31r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_41" Grid.Row="4" Grid.Column="1" Background="#FFD1CECE" MouseDown="_41_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_41r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_51" Grid.Row="5" Grid.Column="1" MouseDown="_51_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_51r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_61" Grid.Row="6" Grid.Column="1" Background="#FFD1CECE" MouseDown="_61_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_61r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_71" Grid.Row="7" Grid.Column="1" MouseDown="_71_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_71r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_81" Grid.Row="8" Grid.Column="1" Background="#FFD1CECE" MouseDown="_81_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_81r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 2nd Column-->
+        <Grid x:Name="_12" Grid.Row="1" Grid.Column="2" Background="#FFD1CECE" MouseDown="_12_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black"></Border>
+            <Rectangle x:Name="_12r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_22" Grid.Row="2" Grid.Column="2" MouseDown="_22_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_22r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_32" Grid.Row="3" Grid.Column="2" Background="#FFD1CECE" MouseDown="_32_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_32r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_42" Grid.Row="4" Grid.Column="2" MouseDown="_42_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_42r">
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_52" Grid.Row="5" Grid.Column="2" Background="#FFD1CECE" MouseDown="_52_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_52r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_62" Grid.Row="6" Grid.Column="2" MouseDown="_62_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_62r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_72" Grid.Row="7" Grid.Column="2" Background="#FFD1CECE" MouseDown="_72_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_72r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_82" Grid.Row="8" Grid.Column="2" MouseDown="_82_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_82r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 3nd Column-->
+        <Grid x:Name="_13" Grid.Row="1" Grid.Column="3" MouseDown="_13_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_13r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_23" Grid.Row="2" Grid.Column="3" Background="#FFD1CECE" MouseDown="_23_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_23r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_33" Grid.Row="3" Grid.Column="3" MouseDown="_33_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_33r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_43" Grid.Row="4" Grid.Column="3" Background="#FFD1CECE" MouseDown="_43_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_43r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_53" Grid.Row="5" Grid.Column="3" MouseDown="_53_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black" >
+            </Border>
+            <Rectangle x:Name="_53r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_63" Grid.Row="6" Grid.Column="3" Background="#FFD1CECE" MouseDown="_63_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_63r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_73" Grid.Row="7" Grid.Column="3" MouseDown="_73_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_73r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_83" Grid.Row="8" Grid.Column="3" Background="#FFD1CECE" MouseDown="_83_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_83r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 4th Column-->
+        <Grid x:Name="_14" Grid.Row="1" Grid.Column="4" Background="#FFD1CECE" MouseDown="_14_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black"></Border>
+            <Rectangle x:Name="_14r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_24" Grid.Row="2" Grid.Column="4" MouseDown="_24_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_24r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_34" Grid.Row="3" Grid.Column="4" Background="#FFD1CECE" MouseDown="_34_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_34r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_44" Grid.Row="4" Grid.Column="4" MouseDown="_44_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_44r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_54" Grid.Row="5" Grid.Column="4" Background="#FFD1CECE" MouseDown="_54_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_54r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_64" Grid.Row="6" Grid.Column="4" MouseDown="_64_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_64r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_74" Grid.Row="7" Grid.Column="4" Background="#FFD1CECE" MouseDown="_74_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_74r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_84" Grid.Row="8" Grid.Column="4" MouseDown="_84_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_84r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 5th Column-->
+
+        <Grid x:Name="_15" Grid.Row="1" Grid.Column="5" MouseDown="_15_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_15r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_25" Grid.Row="2" Grid.Column="5" Background="#FFD1CECE" MouseDown="_25_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_25r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_35" Grid.Row="3" Grid.Column="5" MouseDown="_35_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_35r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_45" Grid.Row="4" Grid.Column="5" Background="#FFD1CECE" MouseDown="_45_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_45r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_55" Grid.Row="5" Grid.Column="5" MouseDown="_55_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_55r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_65" Grid.Row="6" Grid.Column="5" Background="#FFD1CECE" MouseDown="_65_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_65r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_75" Grid.Row="7" Grid.Column="5" MouseDown="_75_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_75r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_85" Grid.Row="8" Grid.Column="5" Background="#FFD1CECE" MouseDown="_85_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_85r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 6th Column-->
+        <Grid x:Name="_16" Grid.Row="1" Grid.Column="6" Background="#FFD1CECE" MouseDown="_16_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_16r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_26" Grid.Row="2" Grid.Column="6" MouseDown="_26_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_26r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_36" Grid.Row="3" Grid.Column="6" Background="#FFD1CECE" MouseDown="_36_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black"/>
+            <Rectangle x:Name="_36r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_46" Grid.Row="4" Grid.Column="6" MouseDown="_46_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_46r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_56" Grid.Row="5" Grid.Column="6" Background="#FFD1CECE" MouseDown="_56_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_56r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_66" Grid.Row="6" Grid.Column="6" MouseDown="_66_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_66r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_76" Grid.Row="7" Grid.Column="6" Background="#FFD1CECE" MouseDown="_76_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_76r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_86" Grid.Row="8" Grid.Column="6" MouseDown="_86_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_86r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 7th Column-->
+        <Grid x:Name="_17" Grid.Row="1" Grid.Column="7" MouseDown="_17_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_17r"/>
+        </Grid>
+        <Grid x:Name="_27" Grid.Row="2" Grid.Column="7" Background="#FFD1CECE" MouseDown="_27_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_27r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_37" Grid.Row="3" Grid.Column="7" MouseDown="_37_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_37r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_47" Grid.Row="4" Grid.Column="7" Background="#FFD1CECE" MouseDown="_47_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_47r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_57" Grid.Row="5" Grid.Column="7" MouseDown="_57_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_57r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_67" Grid.Row="6" Grid.Column="7" Background="#FFD1CECE" MouseDown="_67_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_67r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_77" Grid.Row="7" Grid.Column="7" MouseDown="_77_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_77r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_87" Grid.Row="8" Grid.Column="7" Background="#FFD1CECE" MouseDown="_87_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_87r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+        <!--#region 8th Column-->
+        <Grid x:Name="_18" Grid.Row="1" Grid.Column="8" Background="#FFD1CECE" MouseDown="_18_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black"></Border>
+            <Rectangle x:Name="_18r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_28" Grid.Row="2" Grid.Column="8" MouseDown="_28_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_28r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_38" Grid.Row="3" Grid.Column="8" Background="#FFD1CECE" MouseDown="_38_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black"/>
+
+            <Rectangle x:Name="_38r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_48" Grid.Row="4" Grid.Column="8" MouseDown="_48_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black" Grid.ColumnSpan="2" >
+            </Border>
+            <Rectangle x:Name="_48r" Grid.ColumnSpan="2">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_58" Grid.Row="5" Grid.Column="8" Background="#FFD1CECE" MouseDown="_58_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_58r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_68" Grid.Row="6" Grid.Column="8" MouseDown="_68_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_68r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_78" Grid.Row="7" Grid.Column="8" Background="#FFD1CECE" MouseDown="_78_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_78r">
+
+            </Rectangle>
+        </Grid>
+        <Grid x:Name="_88" Grid.Row="8" Grid.Column="8" MouseDown="_88_MouseDown" Cursor="Hand">
+            <Border BorderThickness="2" BorderBrush="Black">
+            </Border>
+            <Rectangle x:Name="_88r">
+
+            </Rectangle>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>
